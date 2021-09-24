@@ -1,0 +1,1 @@
+// Make the search input hidden. Make's it appearing when hovering the search icon
