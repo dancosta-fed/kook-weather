@@ -1,6 +1,17 @@
+@import url(https://fonts.google.com/specimen/Roboto+Condensed#standard-styles);
 * {
   box-sizing: border-box;
   color: #708090;
+  font-family: "Roboto Condensed", serif;
+}
+
+body {
+  background-image: url("img/vwbus-bytylernix.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 45%;
+  height: 100vh;
+  margin: 0;
 }
 
 nav {
@@ -11,26 +22,33 @@ nav {
 
 .title {
   color: #fff;
+  font-style: oblique;
+  font-size: 2em;
+}
+
+.surfImg {
+  max-width: 50px;
+  height: 40px;
 }
 
 main {
   height: 90%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
 }
 
 .ksearch {
   width: 100%;
   display: flex;
   justify-content: center;
+  margin-bottom: 20px;
+  margin-top: 10px;
 }
 
 input[type=search] {
-  background: #a7cbfd;
+  background: #fff;
   border: none;
   border-radius: 3px;
   margin-right: 15px;
+  padding-left: 1em;
   color: #fff;
   width: 85%;
 }
@@ -50,34 +68,72 @@ input[type=search] {
 
 .weather-info {
   padding-left: 25px;
+  font-size: 2em;
 }
 
 .beach {
-  font-size: 1.5em;
+  font-size: 2.5em;
 }
 
 .peaks {
+  height: 90%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
-.flex-ft {
+.card {
   display: flex;
-  justify-content: space-around;
-  background-color: #0494ef;
-  color: #fff;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  padding: 13px;
+  border-radius: 10px;
+  opacity: 90%;
 }
 
 a {
-  color: #fff;
+  color: #0494ef;
 }
 a:link {
   text-decoration: none;
 }
 a:hover {
-  color: #a7cbfd;
+  color: #fff;
 }
 
+.flex-ft {
+  display: flex;
+  justify-content: space-around;
+  color: #fff;
+}
+
+.date {
+  color: #0494ef;
+  background-color: #fff;
+  border: none;
+  border-radius: 2.5px;
+  transition: all 0.2s ease-in-out;
+}
+.date:hover {
+  color: #fff;
+  background-color: #11a1fb;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.copyright {
+  display: flex;
+  justify-content: center;
+  font-size: 0.7em;
+  color: #fff;
+}
+
+@media only screen and (min-width: 425px) {
+  body {
+    background-position: 20% 25%;
+  }
+}
 .col-1 {
   width: 8.33%;
 }
@@ -129,13 +185,28 @@ a:hover {
 [class*=col-] {
   float: left;
   padding: 15px;
-  border: 1px solid blue;
 }
 
 .row::after {
   content: "";
   clear: both;
   display: table;
+}
+
+#app {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas: "header" "main" "footer";
+}
+#app > header {
+  grid-area: header;
+}
+#app main {
+  grid-area: main;
+}
+#app > footer {
+  grid-area: footer;
 }
 
 /*# sourceMappingURL=style.css.map */

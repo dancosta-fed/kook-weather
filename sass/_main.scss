@@ -1,46 +1,57 @@
-// base colors
-
-$background-color: #fff;
-$nav-color: #0494ef;
-$hover-color: #4e99ff;
-$text-area: #a7cbfd;
-$main-text: #708090;
-
-// === === // 
-
 
 * {
     box-sizing: border-box;
-    color: $main-text;
+    color: $text;
+    font-family: $roboto-condensed;
+  }
+
+  body {
+    background-image: url("img/vwbus-bytylernix.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 45%;
+    height: 100vh;
+    margin: 0;
+
   }
 
   nav {
     display: flex;
     justify-content: center;
     background-color: $nav-color;
-  }
+}
+  
 
   .title {
     color: $background-color;
+    font-style: oblique;
+    font-size: 2em;
+  }
+
+  .surfImg {
+    max-width: 50px;
+    height: 40px;
   }
 
   main {
     height: 90%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
   }
+
+
   .ksearch {
     width: 100%;
     display: flex;
     justify-content: center;
+    margin-bottom: 20px;
+    margin-top: 10px;
   }
 
   input[type="search"] {
-    background: $text-area;
+    background: $background-color;
     border: none;
     border-radius: 3px;
     margin-right: 15px;
+    padding-left: 1em;
     color: $background-color;
     width: 85%;
   }
@@ -61,35 +72,78 @@ $main-text: #708090;
 
   .weather-info {
     padding-left: 25px;
+    font-size: 2em;
   }
 
   .beach {
-    font-size: 1.5em;
+    font-size: 2.5em;
   }
 
   .peaks {
+    height: 90%;
     display: flex;
     flex-direction: column;
-
+    justify-content: center;
   }
 
-  .flex-ft {
+  .card {
     display: flex;
-    justify-content: space-around;
-    background-color: $nav-color;
-    color: $background-color;
+    flex-direction: column;
+    align-items: center;
+    background-color: $background-color;
+    padding: 13px;
+    border-radius: 10px;
+    opacity: 90%;
   }
 
   a {
-    color: $background-color;
+    color: $nav-color;
 
     &:link {
       text-decoration: none;
     }
 
     &:hover {
-      color: $text-area;
+      color: $background-color;
     }
     
   }
+
+  .flex-ft {
+    display: flex;
+    justify-content: space-around;
+    //background-color: $nav-color;
+    color: $background-color;
+  }
+
+  .date {
+    color: $nav-color;
+    background-color: $background-color;
+    border: none;
+    border-radius: 2.5px;
+    transition: all .2s ease-in-out;
+
+    &:hover {
+      color: $background-color;
+      background-color: $btn-light;
+      transform: scale(1.1);
+      cursor: pointer;
+    }
+  }
+
+  .copyright {
+    display: flex;
+    justify-content: center;
+    font-size: 0.7em;
+    color: $background-color;
+  }
  
+
+// === MEDIA QUERY === //
+
+@media only screen and (min-width: 425px) {
+  
+  body {
+    background-position: 20% 25%;
+  }
+}

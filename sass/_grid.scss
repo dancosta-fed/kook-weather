@@ -14,16 +14,39 @@
 .col-11 {width: 91.66%;}
 .col-12 {width: 100%;}
 
-// ===  === //
 
 [class*="col-"] {
   float: left;
   padding: 15px;
-  border: 1px solid blue; // just for now. So I see what's going on
 }
 
 .row::after {
   content: "";
   clear: both;
   display: table;
+}
+
+ // === Grid Container Settings === //
+
+#app {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 
+      'header'
+      'main'
+      'footer';
+
+      & > header {
+        grid-area: header;
+      }
+
+      & main {
+        grid-area: main;
+      }
+
+      > footer {
+        grid-area: footer;
+      }
+
 }

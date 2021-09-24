@@ -1,0 +1,19 @@
+
+// base colors
+
+$background-color: #fff;
+$nav-color: #0494ef;
+$hover-color: #4e99ff;
+$text-area: #a7cbfd;
+$text: #708090;
+
+$btn-dark: darken($nav-color, 5%);
+$btn-light: lighten($nav-color, 5%);
+
+
+// Google Fonts
+@import url(https://fonts.google.com/specimen/Roboto+Condensed#standard-styles);
+
+// Font Variables
+$roboto-condensed: 'Roboto Condensed', serif;   
+$open-sans: 'Open Sans', sans-serif;
