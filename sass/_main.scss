@@ -2,7 +2,6 @@
 * {
     box-sizing: border-box;
     color: $text;
-    font-family: $roboto-condensed;
   }
 
   body {
@@ -17,10 +16,15 @@
 
   nav {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     background-color: $nav-color;
 }
-  
+  .nameLogo {
+    display: flex;
+    flex-direction: row;
+
+  }
 
   .title {
     color: $background-color;
@@ -42,8 +46,6 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
-    margin-top: 10px;
   }
 
   input[type="search"] {
@@ -68,6 +70,22 @@
       transform: scale(1.1);
       cursor: pointer;
     }
+  }
+
+  .todays-date {
+    display: flex;
+    justify-content: center;
+    font-size: 1em;
+
+    &>p {
+      color: $background-color;
+    }
+    
+  }
+
+  .right-date,
+  .right-time {
+    color: $background-color;
   }
 
   .weather-info {

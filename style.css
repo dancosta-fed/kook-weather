@@ -1,8 +1,6 @@
-@import url(https://fonts.google.com/specimen/Roboto+Condensed#standard-styles);
 * {
   box-sizing: border-box;
   color: #708090;
-  font-family: "Roboto Condensed", serif;
 }
 
 body {
@@ -16,8 +14,14 @@ body {
 
 nav {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   background-color: #0494ef;
+}
+
+.nameLogo {
+  display: flex;
+  flex-direction: row;
 }
 
 .title {
@@ -39,8 +43,6 @@ main {
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
-  margin-top: 10px;
 }
 
 input[type=search] {
@@ -64,6 +66,20 @@ input[type=search] {
   color: #4e99ff;
   transform: scale(1.1);
   cursor: pointer;
+}
+
+.todays-date {
+  display: flex;
+  justify-content: center;
+  font-size: 1em;
+}
+.todays-date > p {
+  color: #fff;
+}
+
+.right-date,
+.right-time {
+  color: #fff;
 }
 
 .weather-info {
