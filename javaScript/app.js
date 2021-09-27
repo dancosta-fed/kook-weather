@@ -10,26 +10,20 @@ window.addEventListener('load', ()=> {
     let swell_Height = document.querySelector('.swell-height');
     let swell_Direction = document.querySelector('.swell-direction');
 
+
+   
     // === Getting Date and Time === //
-    
-    function dateTime() {
-        
-        const currentDate = new Date();
-        const dateNow = currentDate.toDateString();
-        const timeNow = currentDate.toLocaleTimeString('en-US', { hour: 'numeric', hour12: true, minute: 'numeric', second:'numeric' });
 
-        right_date.textContent = dateNow;
-        right_time.textContent = timeNow;
-
-        function realTime () {
-            setInterval(timeNow), 1000
-        };
-       // realTime()
+ 
     
-    };
+    const timeAndClock = () => {
+        right_time.innerHTML = new Date().toString('en-US', { hour: 'numeric', hour12: true, minute: 'numeric', second:'numeric' });
+        ;
+      }
+      
+      setInterval(timeAndClock, 1000);
 
-     dateTime()
-    
+ 
 
     // ====== FETCHING API ====== //
 
@@ -45,12 +39,14 @@ window.addEventListener('load', ()=> {
             //long = 17.8081;
             //lat = 58.7984;
 
+            
 
+            today = new Date();
             long = position.coords.longitude;
             lat = position.coords.latitude;
 
             // setting up API
-            fetch(`https://api.stormglass.io/v2/weather/point?lat=${lat}&lng=${long}&params=${params}&start=2020-02-24&end=2020-02-24`, {
+            fetch(`https://api.stormglass.io/v2/weather/point?lat=${lat}&lng=${long}&params=${params}&start=${today}`, { // make sure this 'timeNow' parameter is correct
                 headers: {
                     'Authorization': '676db6ce-1dae-11ec-8169-0242ac130002-676db7a0-1dae-11ec-8169-0242ac130002'
                  }
@@ -89,6 +85,4 @@ window.addEventListener('load', ()=> {
         alert('Hey, this is not working! Enable your location on the browser.');
     }
       
- });
-
-//    
+ });  
