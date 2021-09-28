@@ -3,21 +3,26 @@
 window.addEventListener('load', ()=> {
 
     let lat;
-    let long;
-    let right_date = document.querySelector('.right-date');
-    let right_time = document.querySelector('.right-time');
-    let temperature = document.querySelector('.temperature');
-    let swell_Height = document.querySelector('.swell-height');
-    let swell_Direction = document.querySelector('.swell-direction');
+    let lng;
+    const right_date = document.querySelector('.right-date');
+    const right_time = document.querySelector('.right-time');
+    const temperature = document.querySelector('.temperature');
+    const swell_Height = document.querySelector('.swell-height');
+    const swell_Direction = document.querySelector('.swell-direction');
+    const swell_Period = document.querySelector('.swell-period');
+    const water_temperature = document.querySelector('.water-temperature');
+    const wind_Speed = document.querySelector('.wind-speed'); 
 
 
    
     // === Getting Date and Time === //
 
- 
     
     const timeAndClock = () => {
-        right_time.innerHTML = new Date().toString('en-US', { hour: 'numeric', hour12: true, minute: 'numeric', second:'numeric' });
+
+        const dateNow = new Date().toDateString();
+        right_date.textContent = dateNow;
+        right_time.innerHTML = new Date().toLocaleTimeString('en-US', { hour: 'numeric', hour12: true, minute: 'numeric', second:'numeric' });
         ;
       }
       
@@ -36,48 +41,45 @@ window.addEventListener('load', ()=> {
 
         navigator.geolocation.getCurrentPosition(position =>{
 
-            //long = 17.8081;
-            //lat = 58.7984;
+            // lng = position.coords.longitude;
+            // lat = position.coords.latitude;
 
+            lat = 60.936;
+            lng = 5.114;
+
+
+            const today = Math.round(new Date().getTime()/ 1000).toString();
+            //const today = new Date().toLocaleTimeString('en-US', { hour: 'numeric', hour12: true, minute: 'numeric', second:'numeric' });
+
+                //--- code to convert the date to Unix Timestamp
+            //const rightTime = Math.round(today / 1000).toString();
+
+                
             
 
-            today = new Date();
-            long = position.coords.longitude;
-            lat = position.coords.latitude;
-
             // setting up API
-            fetch(`https://api.stormglass.io/v2/weather/point?lat=${lat}&lng=${long}&params=${params}&start=${today}`, { // make sure this 'timeNow' parameter is correct
+            fetch(`https://api.stormglass.io/v2/weather/point?lat=${lat}&lng=${lng}&params=${params}&start=2021-09-28&end=2021-09-28`, { 
                 headers: {
                     'Authorization': '676db6ce-1dae-11ec-8169-0242ac130002-676db7a0-1dae-11ec-8169-0242ac130002'
                  }
             }).then((response) => response.json()).then((jsonData) => {
   
               // === Selecting SG info 
-                
-              let temperatureValue = jsonData.hours[0].airTemperature.sg;
+           
+                let temperatureValue = jsonData.hours[0].airTemperature.sg;
+                let swellHeight = jsonData.hours[0].swellHeight.sg;
+                let swellDirection = jsonData.hours[0].swellHeight.sg;
+                let swellPeriod = jsonData.hours[0].swellPeriod.sg;
+                let waterTemperature = jsonData.hours[0].waterTemperature.sg;
 
-              temperature.innerHTML = temperatureValue;
+              // === Setting DOM elements from API
 
-              console.log(temperatureValue);
+                temperature.innerHTML = temperatureValue;
+                swell_Height.innerHTML = swellHeight;
+                swell_Direction.innerHTML = swellDirection;
+                swell_Period.innerHTML = swellPeriod;
+                water_temperature.innerHTML = waterTemperature;
 
-                
-                
-               
-                    
-                
-                
-
-                
-                
-
-            
-               
-                
-                // === Setting DOM elements from API
-
-                
-                // swell_Height.textContent = swellHeight;
-                // swell_Direction.textContent = Math.floor(swellDirection);
             });
 
         });
