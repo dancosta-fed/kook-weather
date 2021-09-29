@@ -58,7 +58,7 @@ window.addEventListener('load', ()=> {
             
 
             // setting up API
-            fetch(`https://api.stormglass.io/v2/weather/point?lat=${lat}&lng=${lng}&params=${params}&start=2021-09-28&end=2021-09-28`, { 
+            fetch(`https://api.stormglass.io/v2/weather/point?lat=${lat}&lng=${lng}&params=${params}&start=2021-09-29&end=2021-09-30`, { 
                 headers: {
                     'Authorization': '676db6ce-1dae-11ec-8169-0242ac130002-676db7a0-1dae-11ec-8169-0242ac130002'
                  }
@@ -79,6 +79,10 @@ window.addEventListener('load', ()=> {
                 swell_Direction.innerHTML = swellDirection;
                 swell_Period.innerHTML = swellPeriod;
                 water_temperature.innerHTML = waterTemperature;
+
+
+                //* === BUILD A FUNCTION TO DEFINE "i", THEN SWITCH .HOURS[0] FOR .HOURS[i]. REPLICATE THE FUNCTION FOR EVERY HOUR. 
+                //* === ALSO FIX CSS FOR MOBILE FIRST APPROACH
 
             });
 

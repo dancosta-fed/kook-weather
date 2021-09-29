@@ -40,6 +40,15 @@ main {
   height: 90%;
 }
 
+.temperature {
+  padding-left: 0.5em;
+  color: #fff;
+}
+
+.watch-time {
+  display: flex;
+}
+
 .ksearch {
   width: 100%;
   display: flex;
@@ -86,11 +95,18 @@ input[type=search] {
 
 .weather-info {
   padding-left: 25px;
-  font-size: 2em;
+  font-size: 1.5em;
+  display: flex;
+  justify-content: space-evenly;
+  width: 85%;
 }
 
 .beach {
   font-size: 2.5em;
+  display: flex;
+  justify-content: center;
+  text-shadow: 2px 2px 0px #0494ef, 5px 4px 0px rgba(0, 0, 0, 0.15);
+  color: #fff;
 }
 
 .peaks {
@@ -102,12 +118,17 @@ input[type=search] {
 
 .card {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   background-color: #fff;
   padding: 13px;
   border-radius: 10px;
   opacity: 90%;
+}
+
+.timer {
+  font-size: 2em;
+  padding-left: 1em;
 }
 
 a {
