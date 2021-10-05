@@ -4,13 +4,13 @@
 }
 
 body {
-  background-image: url("img/vwbus.jpg");
-  background-color: #4e99ff;
+  background-color: #0494ef;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 45%;
   height: 100vh;
   margin: 0;
+  padding: 0;
 }
 
 nav {
@@ -40,8 +40,26 @@ main {
   height: 90%;
 }
 
-.temperature {
+.city {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.temperature,
+.temp {
   padding-left: 0.5em;
+  color: #fff;
+  text-shadow: 2px 2px 0px #0494ef, 5px 4px 0px rgba(0, 0, 0, 0.15);
+  color: #fff;
+  font-size: 1.5em;
+}
+
+.beach {
+  font-size: 2.5em;
+  display: flex;
+  justify-content: center;
+  text-shadow: 2px 2px 0px #0494ef, 5px 4px 0px rgba(0, 0, 0, 0.15);
   color: #fff;
 }
 
@@ -63,7 +81,7 @@ input[type=search] {
   margin-right: 15px;
   padding-left: 1em;
   color: #fff;
-  width: 85%;
+  width: 80%;
 }
 
 .btn {
@@ -98,15 +116,8 @@ input[type=search] {
   font-size: 1.5em;
   display: flex;
   justify-content: space-evenly;
+  flex-direction: column;
   width: 85%;
-}
-
-.beach {
-  font-size: 2.5em;
-  display: flex;
-  justify-content: center;
-  text-shadow: 2px 2px 0px #0494ef, 5px 4px 0px rgba(0, 0, 0, 0.15);
-  color: #fff;
 }
 
 .peaks {
@@ -117,6 +128,7 @@ input[type=search] {
 }
 
 .card {
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -171,6 +183,15 @@ a:hover {
 @media only screen and (min-width: 425px) {
   body {
     background-position: 20% 25%;
+  }
+
+  input[type=search] {
+    width: 40%;
+  }
+}
+@media only screen and (min-width: 896px) {
+  .weather-info {
+    flex-direction: row;
   }
 }
 .col-1 {

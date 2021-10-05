@@ -7,6 +7,7 @@ window.addEventListener('load', ()=> {
     const right_date = document.querySelector('.right-date');
     const right_time = document.querySelector('.right-time');
     const temperature = document.querySelector('.temperature');
+    const city_name = document.querySelector('.beach');
 
     // swell Height
     const swell_Height = document.querySelector('.swell-height');
@@ -65,81 +66,91 @@ window.addEventListener('load', ()=> {
 
     if(navigator.geolocation){
 
+        
+
         const params = 'swellHeight,swellPeriod,swellDirection,airTemperature,waveHeight,waveDirection,waterTemperature';
 
         navigator.geolocation.getCurrentPosition(position =>{
+            lat = position.coords.latitude;
+            lng = position.coords.longitude;
 
-            // lng = position.coords.longitude;
-            // lat = position.coords.latitude;
+            // == LAT AND LNG Testing == //
+            //lat = 40.730610; 
+            //lng = -73.935242;
+            
+            // === Reverse Geocoding === //
+           fetch(`https://revgeocode.search.hereapi.com/v1/revgeocode?apikey=Bmj-VJtAukDtkaOgmDCEh3ghSHZhu-yPiUeQRx52gbI&at=${lat},${lng}&lang=en-US`)
+           .then(response => response.json())
+           .then(data => {
 
-            lat = 60.936;
-            lng = 5.114;
+            let cityName = data.items[0].address.city;
+
+            city_name.innerHTML = cityName;
+
+            console.log(cityName);
+           });
 
 
             const today = Math.round(new Date().getTime()/ 1000).toString();
             const tomorrow = today * 2;
 
-            // setting up API
+            // === Weather API === //
             fetch(`https://api.stormglass.io/v2/weather/point?lat=${lat}&lng=${lng}&params=${params}&start=${today}&end=${tomorrow}`, { 
                 headers: {
                     'Authorization': '676db6ce-1dae-11ec-8169-0242ac130002-676db7a0-1dae-11ec-8169-0242ac130002'
                  }
-            }).then((response) => response.json()).then((jsonData) => {
+            }).then((response) => response.json())
+              .then((jsonData) => {
   
                 // === AIR TEMPERATURE NOW === //
-
-                // ???????????? //
                 
-                // For Loop
+                let temperatureValue = (jsonData.hours[11].airTemperature.sg).toFixed(0);
 
-              //******* === > But how? <=== *******// 
-              
+                // Find out a way to use real time temperature... ??????
               
                 // === Selecting SG info 
+
                 
                 // Midnight
-                let temperatureValue = jsonData.hours[0].airTemperature.sg;
                 let swellHeight = jsonData.hours[0].swellHeight.sg;
-                let swellDirection = jsonData.hours[0].swellHeight.sg;
+                let swellDirection = jsonData.hours[0].swellDirection.sg;
                 let swellPeriod = jsonData.hours[0].swellPeriod.sg;
-                let waterTemperature = jsonData.hours[0].waterTemperature.sg;
+                let waterTemperature = jsonData.hours[0].waterTemperature.sg.toFixed(0);
 
                 // 6h
                 //let temperatureValue_6 = jsonData.hours[6].airTemperature.sg;
                 let swellHeight_6 = jsonData.hours[6].swellHeight.sg;
-                let swellDirection_6 = jsonData.hours[6].swellHeight.sg;
+                let swellDirection_6 = jsonData.hours[6].swellDirection.sg;
                 let swellPeriod_6 = jsonData.hours[6].swellPeriod.sg;
-                let waterTemperature_6 = jsonData.hours[6].waterTemperature.sg;
+                let waterTemperature_6 = jsonData.hours[6].waterTemperature.sg.toFixed(0);
 
                 // 9h
                 //let temperatureValue_9 = jsonData.hours[9].airTemperature.sg;
                 let swellHeight_9 = jsonData.hours[9].swellHeight.sg;
-                let swellDirection_9 = jsonData.hours[9].swellHeight.sg;
+                let swellDirection_9 = jsonData.hours[9].swellDirection.sg;
                 let swellPeriod_9 = jsonData.hours[9].swellPeriod.sg;
-                let waterTemperature_9 = jsonData.hours[9].waterTemperature.sg;
+                let waterTemperature_9 = jsonData.hours[9].waterTemperature.sg.toFixed(0);
 
                 // Noon
                 //let temperatureValue_12 = jsonData.hours[12].airTemperature.sg;
                 let swellHeight_12 = jsonData.hours[12].swellHeight.sg;
-                let swellDirection_12 = jsonData.hours[12].swellHeight.sg;
+                let swellDirection_12 = jsonData.hours[12].swellDirection.sg;
                 let swellPeriod_12 = jsonData.hours[12].swellPeriod.sg;
-                let waterTemperature_12 = jsonData.hours[12].waterTemperature.sg;
+                let waterTemperature_12 = jsonData.hours[12].waterTemperature.sg.toFixed(0);
 
                 // 15h
                 //let temperatureValue_15 = jsonData.hours[15].airTemperature.sg;
                 let swellHeight_15 = jsonData.hours[15].swellHeight.sg;
-                let swellDirection_15 = jsonData.hours[15].swellHeight.sg;
+                let swellDirection_15 = jsonData.hours[15].swellDirection.sg;
                 let swellPeriod_15 = jsonData.hours[15].swellPeriod.sg;
-                let waterTemperature_15 = jsonData.hours[15].waterTemperature.sg;
+                let waterTemperature_15 = jsonData.hours[15].waterTemperature.sg.toFixed(0);
 
                 // 18h
                 //let temperatureValue_18 = jsonData.hours[18].airTemperature.sg;
                 let swellHeight_18 = jsonData.hours[18].swellHeight.sg;
-                let swellDirection_18 = jsonData.hours[18].swellHeight.sg;
+                let swellDirection_18 = jsonData.hours[18].swellDirection.sg;
                 let swellPeriod_18 = jsonData.hours[18].swellPeriod.sg;
-                let waterTemperature_18 = jsonData.hours[18].waterTemperature.sg;
-
-                
+                let waterTemperature_18 = jsonData.hours[18].waterTemperature.sg.toFixed(0);
 
               // === Setting DOM elements from API
 
