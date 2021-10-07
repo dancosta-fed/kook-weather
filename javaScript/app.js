@@ -75,8 +75,10 @@ window.addEventListener('load', ()=> {
             lng = position.coords.longitude;
 
             // == LAT AND LNG Testing == //
-            //lat = 40.730610; 
-            //lng = -73.935242;
+
+            // // RIVERTON COORDS
+            // lat = -46.3611; 
+            // lng = 167.8780;
             
             // === Reverse Geocoding === //
            fetch(`https://revgeocode.search.hereapi.com/v1/revgeocode?apikey=Bmj-VJtAukDtkaOgmDCEh3ghSHZhu-yPiUeQRx52gbI&at=${lat},${lng}&lang=en-US`)
@@ -107,6 +109,7 @@ window.addEventListener('load', ()=> {
                 let temperatureValue = (jsonData.hours[11].airTemperature.sg).toFixed(0);
 
                 // Find out a way to use real time temperature... ??????
+                // if 0 is north and 180 is south / 90 east 270 west = how to convert swell direction??
               
                 // === Selecting SG info 
 
@@ -151,6 +154,8 @@ window.addEventListener('load', ()=> {
                 let swellDirection_18 = jsonData.hours[18].swellDirection.sg;
                 let swellPeriod_18 = jsonData.hours[18].swellPeriod.sg;
                 let waterTemperature_18 = jsonData.hours[18].waterTemperature.sg.toFixed(0);
+
+            
 
               // === Setting DOM elements from API
 
@@ -202,7 +207,273 @@ window.addEventListener('load', ()=> {
 
 
                  
-                //* === ALSO FIX CSS FOR MOBILE FIRST APPROACH
+              // === Swell Direction COORDINATES
+
+              // ========================= NORTH ========================= //
+
+              // N
+              if ( swellDirection > 0 < 10, // || swellDirection > 350 < 360 ,
+                swellDirection > 0 < 10, // || swellDirection > 350 < 360,
+                swellDirection > 0 < 10, // || swellDirection > 350 < 360,
+                swellDirection > 0 < 10, // || swellDirection > 350 < 360,
+                swellDirection > 0 < 10 // || swellDirection > 350 < 360
+            ) {
+                swell_Direction.innerHTML = 'N';
+                swell_Direction_6.innerHTML = 'N';
+                swell_Direction_9.innerHTML = 'N';
+                swell_Direction_12.innerHTML = 'N';
+                swell_Direction_15.innerHTML = 'N';
+                swell_Direction_18.innerHTML = 'N';
+              } 
+
+             // NNE
+              else if ( swellDirection > 11 < 40,
+                swellDirection_6 > 11 < 40,
+                swellDirection_12 > 11 < 40,
+                swellDirection_15 > 11 < 40,
+                swellDirection_18 > 11 < 40
+            ) {
+                swell_Direction.innerHTML = 'NNE';
+                swell_Direction_6.innerHTML = 'NNE';
+                swell_Direction_9.innerHTML = 'NNE';
+                swell_Direction_12.innerHTML = 'NNE';
+                swell_Direction_15.innerHTML = 'NNE';
+                swell_Direction_18.innerHTML = 'NNE';
+                
+              }
+
+             // NE
+             else if ( swellDirection > 41 < 50,
+                swellDirection_6 > 41 < 50,
+                swellDirection_12 > 41 < 50,
+                swellDirection_15 > 41 < 50,
+                swellDirection_18 > 41 < 50
+            ) {
+                swell_Direction.innerHTML = 'NE';
+                swell_Direction_6.innerHTML = 'NE';
+                swell_Direction_9.innerHTML = 'NE';
+                swell_Direction_12.innerHTML = 'NE';
+                swell_Direction_15.innerHTML = 'NE';
+                swell_Direction_18.innerHTML = 'NE';
+                
+              }
+
+             // ENE
+             else if ( swellDirection > 51 < 79,
+                swellDirection_6 > 51 < 79,
+                swellDirection_12 > 51 < 79,
+                swellDirection_15 > 51 < 79,
+                swellDirection_18 > 51 < 79
+            ) {
+                swell_Direction.innerHTML = 'ENE';
+                swell_Direction_6.innerHTML = 'ENE';
+                swell_Direction_9.innerHTML = 'ENE';
+                swell_Direction_12.innerHTML = 'ENE';
+                swell_Direction_15.innerHTML = 'ENE';
+                swell_Direction_18.innerHTML = 'ENE';
+                
+              }
+
+              // NW
+              else if ( swellDirection > 310 < 320,
+                swellDirection_6 > 310 < 320,
+                swellDirection_12 > 310 < 320,
+                swellDirection_15 > 310 < 320,
+                swellDirection_18 > 310 < 320
+                
+            ) {
+                swell_Direction.innerHTML = 'NW';
+                swell_Direction_6.innerHTML = 'NW';
+                swell_Direction_9.innerHTML = 'NW';
+                swell_Direction_12.innerHTML = 'NW';
+                swell_Direction_15.innerHTML = 'NW';
+                swell_Direction_18.innerHTML = 'NW';
+                
+              } 
+
+             // NNW
+              else if ( swellDirection > 321 < 349,
+                swellDirection_6 > 321 < 349,
+                swellDirection_12 > 321 < 349,
+                swellDirection_15 > 321 < 349,
+                swellDirection_18 > 321 < 349
+                
+            ) {
+                swell_Direction.innerHTML = 'NNW';
+                swell_Direction_6.innerHTML = 'NNW';
+                swell_Direction_9.innerHTML = 'NNW';
+                swell_Direction_12.innerHTML = 'NNW';
+                swell_Direction_15.innerHTML = 'NNW';
+                swell_Direction_18.innerHTML = 'NNW';
+                
+              }
+              
+             // WNW
+              else if ( swellDirection > 290 < 309,
+                swellDirection_6 > 290 < 309,
+                swellDirection_12 > 290 < 309,
+                swellDirection_15 > 290 < 309,
+                swellDirection_18 > 290 < 309
+                
+            ) {
+                swell_Direction.innerHTML = 'WNW';
+                swell_Direction_6.innerHTML = 'WNW';
+                swell_Direction_9.innerHTML = 'WNW';
+                swell_Direction_12.innerHTML = 'WNW';
+                swell_Direction_15.innerHTML = 'WNW';
+                swell_Direction_18.innerHTML = 'WNW';
+                
+              }
+
+             // ========================= SOUTH ========================= //
+             
+
+             // S
+              else if ( swellDirection > 171 < 190,
+                swellDirection_6 > 171 < 190,
+                swellDirection_12 > 171 < 190,
+                swellDirection_15 > 171 < 190,
+                swellDirection_18 > 171 < 190 ) {
+                swell_Direction.innerHTML = 'S';
+                swell_Direction_6.innerHTML = 'S';
+                swell_Direction_9.innerHTML = 'S';
+                swell_Direction_12.innerHTML = 'S';
+                swell_Direction_15.innerHTML = 'S';
+                swell_Direction_18.innerHTML = 'S';
+    
+              } 
+
+             // ESE
+             else if ( swellDirection > 91 < 130,
+                swellDirection_6 > 91 < 130,
+                swellDirection_12 > 91 < 130,
+                swellDirection_15 > 91 < 130,
+                swellDirection_18 > 91 < 130
+                ) {
+                swell_Direction.innerHTML = 'ESE';
+                swell_Direction_6.innerHTML = 'ESE';
+                swell_Direction_9.innerHTML = 'ESE';
+                swell_Direction_12.innerHTML = 'ESE';
+                swell_Direction_15.innerHTML = 'ESE';
+                swell_Direction_18.innerHTML = 'ESE';
+                
+              } 
+
+            // SE 
+              else if ( swellDirection > 131 < 140,
+                swellDirection_6 > 131 < 140,
+                swellDirection_12 > 131 < 140,
+                swellDirection_15 > 131 < 140,
+                swellDirection_18 > 131 < 140
+                ) {
+                swell_Direction.innerHTML = 'SE';
+                swell_Direction_6.innerHTML = 'SE';
+                swell_Direction_9.innerHTML = 'SE';
+                swell_Direction_12.innerHTML = 'SE';
+                swell_Direction_15.innerHTML = 'SE';
+                swell_Direction_18.innerHTML = 'SE';
+                
+              } 
+
+             // SSE
+              else if ( swellDirection > 141 < 170,
+                swellDirection_6 > 141 < 170,
+                swellDirection_12 > 141 < 170,
+                swellDirection_15 > 141 < 170,
+                swellDirection_18 > 141 < 170
+                ) {
+                swell_Direction.innerHTML = 'SSE';
+                swell_Direction_6.innerHTML = 'SSE';
+                swell_Direction_9.innerHTML = 'SSE';
+                swell_Direction_12.innerHTML = 'SSE';
+                swell_Direction_15.innerHTML = 'SSE';
+                swell_Direction_18.innerHTML = 'SSE';
+                
+              } 
+
+             // SSW
+             else if ( swellDirection > 191 < 210,
+                swellDirection_6 > 191 < 210,
+                swellDirection_12 > 191 < 210,
+                swellDirection_15 > 191 < 210,
+                swellDirection_18 > 191 < 210
+            ) {
+                swell_Direction.innerHTML = 'SSW';
+                swell_Direction_6.innerHTML = 'SSW';
+                swell_Direction_9.innerHTML = 'SSW';
+                swell_Direction_12.innerHTML = 'SSW';
+                swell_Direction_15.innerHTML = 'SSW';
+                swell_Direction_18.innerHTML = 'SSW';
+                
+              } 
+
+             // SW
+             else if ( swellDirection > 180 < 270,
+                swellDirection_6 > 180 < 270,
+                swellDirection_12 > 180 < 270,
+                swellDirection_15 > 180 < 270,
+                swellDirection_18 > 180 < 270) {
+                swell_Direction.innerHTML = 'SW';
+                swell_Direction_6.innerHTML = 'SW';
+                swell_Direction_9.innerHTML = 'SW';
+                swell_Direction_12.innerHTML = 'SW';
+                swell_Direction_15.innerHTML = 'SW';
+                swell_Direction_18.innerHTML = 'SW';
+                
+              } 
+            
+              // WSW
+             else if ( swellDirection > 240 < 260,
+                swellDirection_6 > 240 < 260,
+                swellDirection_12 > 240 < 260,
+                swellDirection_15 > 240 < 260,
+                swellDirection_18 > 240 < 260
+            ) {
+                swell_Direction.innerHTML = 'WSW';
+                swell_Direction_6.innerHTML = 'WSW';
+                swell_Direction_9.innerHTML = 'WSW';
+                swell_Direction_12.innerHTML = 'WSW';
+                swell_Direction_15.innerHTML = 'WSW';
+                swell_Direction_18.innerHTML = 'WSW';
+                
+              } 
+
+
+
+            // ========================= EAST ========================= //
+
+              // EAST
+              else if ( swellDirection > 80 < 100,
+                swellDirection_6 > 80 < 100,
+                swellDirection_12 > 80 < 100,
+                swellDirection_15 > 80 < 100,
+                swellDirection_18 > 80 < 100 
+            ) {
+                swell_Direction.innerHTML = 'E';
+                swell_Direction_6.innerHTML = 'E';
+                swell_Direction_9.innerHTML = 'E';
+                swell_Direction_12.innerHTML = 'E';
+                swell_Direction_15.innerHTML = 'E';
+                swell_Direction_18.innerHTML = 'E';
+
+              } 
+
+             // ========================= WEST ========================= //
+
+              else if ( swellDirection > 260 < 280,
+                swellDirection_6 > 260 < 280,
+                swellDirection_12 > 260 < 280,
+                swellDirection_15 > 260 < 280,
+                swellDirection_18 > 260 < 280
+            ) {
+                swell_Direction.innerHTML = 'W';
+                swell_Direction_6.innerHTML = 'W';
+                swell_Direction_9.innerHTML = 'W';
+                swell_Direction_12.innerHTML = 'W';
+                swell_Direction_15.innerHTML = 'W';
+                swell_Direction_18.innerHTML = 'W';
+                
+              } 
 
             });
 
